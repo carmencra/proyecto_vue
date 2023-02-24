@@ -1,0 +1,107 @@
+@import './base.css';
+
+header {
+  margin-bottom: 4%;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+header nav {
+  margin: auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.greetings img {
+  margin-top: 2%;
+  width: 70%;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.greetings h2 {
+  margin-bottom: 2%;
+}
+
+.cerrar {
+  background-color: var(--color-background);
+  color: hsla(160, 100%, 37%, 1);
+  border: none;
+  text-transform: uppercase;
+  font-size: 28px;
+}
+
+
+img {
+  width: 150px;
+}
+
+/* tabla */
+table {
+  border-collapse: collapse;
+}
+
+table thead tr:first-child {
+  height: 80px;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+table thead tr:nth-child(2) {
+  height: 60px;
+  font-size: 18px;
+}
+
+table tbody {
+  text-align: center;
+}
+
+table tbody tr {
+  height: 150px;
+}
+
+
+footer {
+  margin-top: 10%;
+  display: flex;
+  justify-content: space-around;
+  color: hsla(160, 100%, 37%, 1);
+  margin-bottom: 0%;
+}
+
+
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (max-width: 900px) {
+  header {
+    font-size: 20px;
+  }
+  
+  .cerrar {
+    font-size: 19px;
+  }
+
+}
+
+
