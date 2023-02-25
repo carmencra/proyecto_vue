@@ -91,7 +91,7 @@ const routes= [
     },
 
     {
-        path: "/detalle_curso/:id",
+        path: "/detalle_curso/:nombre",
         component: detalle_curso
     },
 
