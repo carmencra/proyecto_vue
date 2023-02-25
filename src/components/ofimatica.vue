@@ -15,6 +15,25 @@
       required: true
     }
   })
+
+  const array_cursos= []
+
+  function inscribirse(curso) {
+    // console.log(curso['id']);
+    // array_cursos.push(JSON.stringify(curso))
+    // array_cursos[curso.nombre]= Object.values(curso) 
+    sessionStorage.setItem(curso.nombre, Object.values(curso) );
+
+    // console.log(sessionStorage);
+    for(var i = 0; i < sessionStorage.length; i++) { 
+      var clave = sessionStorage.key(i);
+      // console.log(sessionStorage.getItem(clave))
+    }
+    // console.log(sessionStorage)
+  }
+
+  
+
 </script>
 
 
@@ -32,7 +51,7 @@
             <li> {{ curso.categoria }} </li>
             <li> {{ curso.horas }} horas </li>
             <img v-bind:src="'/src/images/'+curso.imagen">
-            <li> <button>Inscribirse</button> </li>
+            <li> <button @click="inscribirse(curso)">Inscribirse</button> </li>
           </ul> <br><br>
         </div>
       </section>

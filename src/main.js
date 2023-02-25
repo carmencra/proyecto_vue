@@ -14,6 +14,8 @@ import programacion from "./components/programacion.vue"
 import sos from "./components/sos.vue"
 import detalle_curso from "./components/detalle_curso.vue"
 
+import miscursos from "./components/miscursos.vue"
+
 
 //login, registro
 import administracion from "./components/administracion.vue"
@@ -91,6 +93,14 @@ const routes= [
     {
         path: "/detalle_curso/:id",
         component: detalle_curso
+    },
+
+    {
+        path: "/miscursos",
+        component: miscursos,
+        props: {
+            msg: "Mis cursos"
+        }
     }
 ]
 

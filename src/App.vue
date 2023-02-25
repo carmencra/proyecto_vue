@@ -55,6 +55,9 @@
     <router-link v-if="nombre_usuario != ''" to="/">
       <button @click="cerrar_sesion" class="cerrar">Cerrar sesión</button>
     </router-link>
+
+    <!-- cursos del usuario -->
+    <router-link v-if="nombre_usuario != ''" to="/miscursos">miscursos</router-link>
     
 <!-- intentar hacer cmponente cerrar que te hace push a / y cierra sesión -->
 
