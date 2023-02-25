@@ -1,14 +1,10 @@
 <script setup>
-
+    import {ref} from 'vue'
     const cursos= []
 
     for(let i = 0; i < sessionStorage.length; i++) { 
         let clave = sessionStorage.key(i);
-        cursos[clave]= sessionStorage.getItem(clave)
-        
-        document.getElementById("info").innerHTML += cursos[clave]
-
-    
+        cursos[clave]= JSON.parse(sessionStorage.getItem(clave))    
     }
     console.log(cursos)
 
@@ -19,23 +15,21 @@
             required: true
         }
     })
-</script>
 
+</script>
 
 
 <template>
     <h1 class="green">{{ msg }}</h1>
 
-    <!-- aquí coge los cursos vacíos(como se declara la constante) -->
-    {{ cursos }}
-
-    <div v-for="curso in cursos">
-        <p> {{ curso }}</p>
-
-    </div>
-
-    <div id="info"></div>
-
+    {{ cursos["excell"]["categoria"]}}
     
+    <section>
+        <div v-for="cur in cursos">
+        <p> {{ cursos[cur]["categoria"]}} </p>
+        </div>
+    </section>
 
+    <!-- aquí coge los cursos vacíos(como se declara la constante) -->
+    
 </template>

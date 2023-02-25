@@ -22,7 +22,7 @@
     // console.log(curso['id']);
     // array_cursos.push(JSON.stringify(curso))
     // array_cursos[curso.nombre]= Object.values(curso) 
-    sessionStorage.setItem(curso.nombre, Object.values(curso) );
+    sessionStorage.setItem(curso.nombre, JSON.stringify(curso) );
 
     // console.log(sessionStorage);
     for(var i = 0; i < sessionStorage.length; i++) { 
