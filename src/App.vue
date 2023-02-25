@@ -1,7 +1,8 @@
 <script setup>
   import { RouterLink, RouterView } from 'vue-router';
    
-  import { ref } from "vue"
+  import { ref, onMounted } from 'vue'
+
   import { auth } from "./firebase.js" 
 
   import { onAuthStateChanged, signOut } from "firebase/auth"
@@ -24,6 +25,16 @@
         }); 
     }
 
+    
+  const cargando= ref(true)
+  onMounted(() => {
+    //pasados 2.5 segundos, carga los datos de la página
+    setTimeout(() => {
+      cargando.value= false
+    }, 2000)
+  })
+
+
 </script>
 
 <template>
@@ -31,7 +42,9 @@
    <nav>
     <router-link to="/">Inicio</router-link>
     <!-- <router-link to="/registro">Registro</router-link> -->
-    <router-link to="/cursos">Cursos</router-link>
+    <router-link v-bind:to="'/ofimatica'">Ofimática</router-link>
+    <router-link v-bind:to="'/programacion'">Programación</router-link>
+    <router-link v-bind:to="'/sos'">SOs</router-link>
 
     <!-- si no hay un usuario, muestra el registro -->
     <router-link v-if="nombre_usuario == ''" to="/registro">Registro</router-link> 
@@ -50,7 +63,8 @@
   </header>
 
   <main>
-    <router-view />
+    <div v-if="cargando" class="recarga"></div>
+    <router-view v-else />
   </main>
 
   <footer>
@@ -61,3 +75,23 @@
     <p>Contacta con <u>INFORMÁTICA SL</u></p>
   </footer>
 </template>
+
+
+<style>
+  .recarga {
+    margin: 0 auto;
+    width: 70px;
+    height: 70px;
+    border: 8px solid hsla(160, 100%, 37%, 1);;
+    border-top: 10px solid blueviolet; 
+    border-radius: 100%;
+    animation: spin 0.8s ease-in-out infinite;
+    backdrop-filter: blur(100px);
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+</style>

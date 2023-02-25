@@ -12,7 +12,6 @@
 
 
 <template>
-  <!-- {{ $route.params.id }} -->
     <section v-for="curso in cursos"  :key="curso.id">
         <div v-if="curso.id == $route.params.id">
             

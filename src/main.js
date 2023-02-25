@@ -9,7 +9,6 @@ import NotFound from "./components/NotFound.vue"
 import registro from "./components/registro.vue"
 
 //cursos
-import cursos from "./components/cursos.vue"
 import ofimatica from "./components/ofimatica.vue"
 import programacion from "./components/programacion.vue"
 import sos from "./components/sos.vue"
@@ -63,14 +62,6 @@ const routes= [
             return autenticado; 
             //return true o false
         },
-    },
-
-    {
-        path: "/cursos",
-        component: cursos,
-        props: {
-            msg: "Cursos"
-        }
     },
 
     {

@@ -3,7 +3,7 @@
 header {
   margin-bottom: 4%;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 header nav {
@@ -30,7 +30,7 @@ header nav {
   color: hsla(160, 100%, 37%, 1);
   border: none;
   text-transform: uppercase;
-  font-size: 28px;
+  font-size: 22px;
 }
 
 
@@ -95,11 +95,11 @@ a,
 
 @media (max-width: 900px) {
   header {
-    font-size: 20px;
+    font-size: 16px;
   }
   
   .cerrar {
-    font-size: 19px;
+    font-size: 15px;
   }
 
 }
