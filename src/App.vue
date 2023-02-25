@@ -49,15 +49,16 @@
     <!-- si no hay un usuario, muestra el registro -->
     <router-link v-if="nombre_usuario == ''" to="/registro">Registro</router-link> 
 
-    <!-- si hay un usuario, muestra administración y cerrar sesión -->
-    <router-link v-if="nombre_usuario != ''" to="/administracion">Administración</router-link>
+    <!-- si eres admin, te muestra la ruta de administración -->
+    <router-link v-if="nombre_usuario == 'admin@gmail.com'" to="/administracion">Administración</router-link>
 
+    <!-- cursos del usuario normal-->
+    <router-link v-if="nombre_usuario != '' && nombre_usuario !='admin@gmail.com'" to="/miscursos">mis cursos</router-link>
+
+    <!-- si hay un usuario, para cerrar sesión -->
     <router-link v-if="nombre_usuario != ''" to="/">
       <button @click="cerrar_sesion" class="cerrar">Cerrar sesión</button>
     </router-link>
-
-    <!-- cursos del usuario -->
-    <router-link v-if="nombre_usuario != ''" to="/miscursos">mis cursos</router-link>
     
 <!-- intentar hacer cmponente cerrar que te hace push a / y cierra sesión -->
 
