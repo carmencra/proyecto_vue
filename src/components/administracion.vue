@@ -33,14 +33,13 @@
     let categoria= document.getElementById("categoria").value;
     let nombre= document.getElementById("nombre").value;
     let horas= document.getElementById("horas").value;
-    let imagen= document.getElementById("imagen").value;
 
     if (categoria != "" && nombre != "" && horas != "" && categoria != "") {
       addDoc(collection(db, "cursos"), {
         categoria: categoria,
         nombre: nombre,
         horas: horas,
-        imagen: imagen 
+        imagen: file.value.files[0].name 
       });
     }
   }
@@ -76,11 +75,9 @@
 
       <label for="horas">Horas: </label>
       <input type="number" name="horas" id="horas" min="0"> <br>
-      
-      <label for="imagen">imaegn (): </label>
-      <input type="text" name="imagen" id="imagen"> <br>
 
-      <input type="file" name="" ref="file" @change="subir_archivo"> <br>
+      <label for="imagen">Imagen: </label>
+      <input type="file" name="" accept="image/*" ref="file" @change="subir_archivo"> <br>
 
       <input type="submit" @click="nuevo_curso" value="Añadir curso"> 
     <!-- </form>  -->
@@ -103,7 +100,6 @@
             </li>
 
             <img v-bind:src="'/src/images/'+curso.imagen">
-            <!-- <li> <button>Inscribirse</button> </li> -->
           </ul> <br><br>
       </section>
     </ul>
