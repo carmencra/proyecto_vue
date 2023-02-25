@@ -5,7 +5,6 @@ import {useRoute} from "vue-router";
 import { useFirestore, useCollection } from 'vuefire'
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
-//añadir documento
 import { collection } from 'firebase/firestore'
 
 const db = useFirestore()
@@ -13,21 +12,37 @@ const cursos = useCollection(collection(db, 'cursos'))
 
 var nombre_curso= useRoute().params.nombre
 var nombre_img= nombre_curso + '.png'
-
-console.log(nombre_img)
+var nombre_pdf= nombre_curso + '.pdf'
 
 // Create a reference with an initial file path and name
 const storage = getStorage();
-const pathReference = ref(storage, nombre_img);
+//obtener imagen curso
+function carga_imagen() {
+    const imagen_bd = ref(storage, nombre_img);
+    getDownloadURL(imagen_bd)
+    .then((url) => {
+        const img = document.getElementById('ima');
+        img.setAttribute('src', url);
+    })
+    .catch((error) => {
+        // Handle any errors
+    });
+}
 
-getDownloadURL(pathReference)
-  .then((url) => {
-    const img = document.getElementById('ima');
-    img.setAttribute('src', url);
-  })
-  .catch((error) => {
-    // Handle any errors
-  });
+function carga_pdf() {
+    const pdf_bd = ref(storage, nombre_pdf);
+    getDownloadURL(pdf_bd)
+    .then((url) => {
+        const pdf = document.getElementById('pdf');
+        pdf.setAttribute('href', url);
+    })
+    .catch((error) => {
+        // Handle any errors
+    });
+}
+
+carga_imagen()
+carga_pdf()
 </script>
 
 
@@ -58,11 +73,13 @@ getDownloadURL(pathReference)
                         <td> {{ curso.horas }} horas </td>
                         <td>
                             <!-- <img v-bind:src="'/src/images/' + curso.imagen"> -->
-                            <img v-bind:src="image" id="ima">
+                            <img v-bind:src="imagen" id="ima">
                         </td>
                         <td>
                             <!-- aquí, al ser un pdf por curso, sería en vez de con categoría con nombre, pero no he hecho un pdf por curso así que por categoría va a ser :) -->
-                            <a v-bind:href="'/src/pdf/' + curso.categoria + '.pdf'" target="_blank">{{ curso.categoria
+                            <!-- <a v-bind:href="'/src/pdf/' + curso.categoria + '.pdf'" target="_blank">{{ curso.categoria
+                            }}.pdf</a> -->
+                            <a v-bind:href="pdf" id="pdf" target="_blank">{{ curso.nombre
                             }}.pdf</a>
                         </td>
                         <td> <button>Inscribirse</button> </td>
