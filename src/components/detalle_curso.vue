@@ -72,13 +72,9 @@ carga_pdf()
                         <td> {{ curso.categoria }} </td>
                         <td> {{ curso.horas }} horas </td>
                         <td>
-                            <!-- <img v-bind:src="'/src/images/' + curso.imagen"> -->
                             <img v-bind:src="imagen" id="ima">
                         </td>
                         <td>
-                            <!-- aquí, al ser un pdf por curso, sería en vez de con categoría con nombre, pero no he hecho un pdf por curso así que por categoría va a ser :) -->
-                            <!-- <a v-bind:href="'/src/pdf/' + curso.categoria + '.pdf'" target="_blank">{{ curso.categoria
-                            }}.pdf</a> -->
                             <a v-bind:href="pdf" id="pdf" target="_blank">{{ curso.nombre
                             }}.pdf</a>
                         </td>

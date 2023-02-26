@@ -3,7 +3,6 @@ import { ref } from "vue"
 import { auth } from "../firebase.js"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 
- 
 var usuario= ref(""), contrasena= ref("");
 
 function alta_usuario() {
@@ -62,7 +61,6 @@ function login_google() {
       }
     );
 }
-
 
 
 defineProps({

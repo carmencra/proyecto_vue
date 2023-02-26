@@ -26,6 +26,7 @@
     }
 
     
+  // preload
   const cargando= ref(true)
   onMounted(() => {
     //pasados 2.5 segundos, carga los datos de la página

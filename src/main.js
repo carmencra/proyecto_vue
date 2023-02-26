@@ -14,7 +14,6 @@ import programacion from "./components/programacion.vue"
 import sos from "./components/sos.vue"
 import detalle_curso from "./components/detalle_curso.vue"
 import editar_curso from "./components/editar_curso.vue"
-
 import miscursos from "./components/miscursos.vue"
 
 
@@ -153,4 +152,3 @@ app.use(VueFire, {
 app.mount('#app')
 
 export const router_main= router
-

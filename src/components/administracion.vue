@@ -30,6 +30,7 @@
 
   // si no hay datos vacíos, guarda el curso en la bd
   function nuevo_curso() {
+    // coge los campos del formulario
     let categoria= document.getElementById("categoria").value;
     let nombre= document.getElementById("nombre").value;
     let horas= document.getElementById("horas").value;
