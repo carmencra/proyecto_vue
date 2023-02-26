@@ -1,11 +1,11 @@
 Enlace de producción:
-  https://proyectovue-1c548.firebaseapp.com
-  (en la producción no coge bien el enlace del logo)
+https://proyectovue-1c548.firebaseapp.com
+(en la producción no coge bien el enlace del logo)
   
   
 Para entrar como administrador (y administrar los cursos): 
-  email: admin@gmail.com
-  password: admin123
+email: admin@gmail.com
+password: admin123
 
 
 
