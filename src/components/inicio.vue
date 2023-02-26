@@ -13,7 +13,7 @@
     <h1 class="green">{{ msg }}</h1>
 
     <div style="text-align: center;">
-      <img v-bind:src="'/src/images/logo.png'">
+      <img v-bind:src="'/public/logo.png'">
       
       <h2 class="green">INFORMÁTICA S.L</h2>
     </div>
