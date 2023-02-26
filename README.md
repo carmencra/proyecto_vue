@@ -1,5 +1,5 @@
 Enlace de producción:
-  https://proyectovue-1c548.firebaseapp.com/ofimatica
+  https://proyectovue-1c548.firebaseapp.com
   (en la producción no coge bien el enlace del logo)
   
   
