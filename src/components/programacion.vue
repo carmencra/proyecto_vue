@@ -1,13 +1,27 @@
 <script setup>
   //firebase
   import { useFirestore, useCollection } from 'vuefire'
+  import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
-  //añadir documento
   import { collection } from 'firebase/firestore'
 
   const db = useFirestore()
   const cursos = useCollection(collection(db, 'cursos'))
 
+  // Create a reference with an initial file path and name
+  const storage = getStorage();
+  //obtener imagen curso
+  function carga_imagen(nombre_imagen, nombre_curso) {
+      const imagen_bd = ref(storage, nombre_imagen);
+      getDownloadURL(imagen_bd)
+      .then((url) => {
+          const img = document.getElementById(nombre_curso);
+          img.setAttribute('src', url);
+      })
+      .catch((error) => {
+          // Handle any errors
+      });
+  }
   //título componente
   defineProps({
     msg: {
@@ -40,7 +54,7 @@
           <ul>
             <li> {{ curso.categoria }} </li>
             <li> {{ curso.horas }} horas </li>
-            <img v-bind:src="'/src/images/'+curso.imagen">
+            <img v-bind:src="carga_imagen(curso.imagen, curso.nombre)" v-bind:id="curso.nombre">
             <li> 
               <button @click="inscribirse(curso)">Inscribirse</button> 
             </li>
