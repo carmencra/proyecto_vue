@@ -12,6 +12,20 @@
   const db = useFirestore()
   const cursos = useCollection(collection(db, 'cursos'))
 
+  const storage = getStorage();
+  //obtener imagen curso
+  function carga_imagen(nombre_imagen, nombre_curso) {
+      const imagen_bd = ref2(storage, nombre_imagen);
+      getDownloadURL(imagen_bd)
+      .then((url) => {
+          const img = document.getElementById(nombre_curso);
+          img.setAttribute('src', url);
+      })
+      .catch((error) => {
+          // Handle any errors
+      });
+  }
+
   let file= ref("")
     //subir archivos
     function subir_archivo() {
@@ -87,13 +101,12 @@
     <!-- firebase: mostrar campos -->
     <ul>
       <section v-for="curso in cursos"  :key="curso.id">
-          <router-link v-bind:to="'/detalle_curso/'+curso.id">{{curso.nombre}}</router-link>
+          <router-link v-bind:to="'/detalle_curso/'+curso.nombre">{{curso.nombre}}</router-link>
 
           <ul>
             <li> {{ curso.id }} </li>
             <li> {{ curso.categoria }} </li>
             <li> {{ curso.horas }} horas </li>
-            <li> {{ curso.imagen }} </li>
 
             <!-- para editar el curso -->
             <li> 
@@ -105,7 +118,7 @@
               <button @click="borra_curso(curso.id)">Borrar curso</button> 
             </li>
 
-            <img v-bind:src="'/src/images/'+curso.imagen">
+            <img v-bind:src="carga_imagen(curso.imagen, curso.nombre)" v-bind:id="curso.nombre">
           </ul> <br><br>
       </section>
     </ul>
