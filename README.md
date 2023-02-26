@@ -1,3 +1,12 @@
+Enlace de producción:
+  https://proyectovue-1c548.firebaseapp.com/ofimatica
+  (en la producción no coge bien el enlace del logo)
+  
+  
+
+
+
+
 # proyecto_vue
 
 This template should help get you started developing with Vue 3 in Vite.
