@@ -1,4 +1,20 @@
 <script setup>
+
+  import { getStorage, ref, getDownloadURL } from "firebase/storage";
+
+  const storage = getStorage();
+    //obtener imagen curso
+    function carga_logo(logo) {
+        const imagen_bd = ref(storage, logo+'.png');
+        getDownloadURL(imagen_bd)
+        .then((url) => {
+            const img = document.getElementById("logo");
+            img.setAttribute('src', url);
+        })
+        .catch((error) => {
+            // Handle any errors
+        });
+    }
   //título componente
   defineProps({
     msg: {
@@ -13,7 +29,7 @@
     <h1 class="green">{{ msg }}</h1>
 
     <div style="text-align: center;">
-      <img v-bind:src="'/public/logo.png'">
+      <img v-bind:src="carga_logo('logo')" id="logo">
       
       <h2 class="green">INFORMÁTICA S.L</h2>
     </div>
