@@ -13,6 +13,7 @@ import ofimatica from "./components/ofimatica.vue"
 import programacion from "./components/programacion.vue"
 import sos from "./components/sos.vue"
 import detalle_curso from "./components/detalle_curso.vue"
+import editar_curso from "./components/editar_curso.vue"
 
 import miscursos from "./components/miscursos.vue"
 
@@ -32,7 +33,6 @@ import { firebaseApp } from './firebase.js'
 
 const routes= [
     {
-        
         path: "/",
         component: inicio,
         props: {
@@ -93,6 +93,14 @@ const routes= [
     {
         path: "/detalle_curso/:nombre",
         component: detalle_curso
+    },
+
+    {
+        path: "/editar_curso/:id",
+        component: editar_curso,
+        props: {
+            msg: "Editar curso"
+        }
     },
 
     {

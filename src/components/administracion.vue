@@ -94,6 +94,11 @@
             <li> {{ curso.horas }} horas </li>
             <li> {{ curso.imagen }} </li>
 
+            <!-- para editar el curso -->
+            <li> 
+              <router-link v-bind:to="'/editar_curso/'+curso.id">Editar curso</router-link>
+            </li>
+
             <!-- añade un botón para borrar el curso -->
             <li> 
               <button @click="borra_curso(curso.id)">Borrar curso</button> 
