@@ -3,7 +3,9 @@ Enlace de producción:
   (en la producción no coge bien el enlace del logo)
   
   
-
+Para entrar como administrador (y administrar los cursos): 
+  email: admin@gmail.com
+  password: admin123
 
 
 
